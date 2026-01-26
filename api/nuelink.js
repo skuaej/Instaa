@@ -1,47 +1,54 @@
 const express = require('express');
 const { exec } = require('child_process');
 const cors = require('cors');
+const path = require('path');
 const app = express();
 
 app.use(cors());
 
-// Ye endpoint ab aapke file name se match karega
 app.get('/api/nuelink', (req, res) => {
     const videoUrl = req.query.url;
 
-    console.log(`📥 Request Received for: ${videoUrl}`);
+    console.log(`\n📥 Request: ${videoUrl}`);
 
     if (!videoUrl) {
         return res.status(400).json({ success: false, message: "URL missing!" });
     }
 
-    // Pro command to get high quality video
-    const command = `python3 -m yt_dlp --dump-json --no-check-certificate --format "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best" "${videoUrl}"`;
+    // Path to your cookies file in the root
+    const cookiePath = path.join(__dirname, '../cookies.txt');
+
+    // Command with Cookies, User-Agent and Metadata Dump
+    const command = `python3 -m yt_dlp --cookiefile "${cookiePath}" --dump-json --no-check-certificate --user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" --format "best" "${videoUrl}"`;
 
     exec(command, (error, stdout, stderr) => {
         if (error) {
-            console.error(`❌ Scraper Error: ${stderr}`);
-            return res.status(500).json({ success: false, message: "Scraping failed." });
+            console.error(`❌ Error: ${stderr}`);
+            return res.status(500).json({ 
+                success: false, 
+                message: "Instagram Blocked the request. Check your cookies.txt",
+                error: stderr.split('\n')[0] 
+            });
         }
 
         try {
-            const metadata = JSON.parse(stdout);
+            const data = JSON.parse(stdout);
             res.json({
                 success: true,
                 data: {
-                    title: metadata.title,
-                    thumbnail: metadata.thumbnail,
-                    url: metadata.url, // Main Video URL
-                    uploader: metadata.uploader,
-                    duration: metadata.duration_string
+                    title: data.title || "Instagram Video",
+                    thumbnail: data.thumbnail,
+                    url: data.url,
+                    uploader: data.uploader,
+                    duration: data.duration_string
                 }
             });
-            console.log(`✅ Done: ${metadata.title}`);
+            console.log(`✅ Success: ${data.title}`);
         } catch (e) {
-            res.status(500).json({ success: false, message: "JSON parsing error." });
+            res.status(500).json({ success: false, message: "Data parsing failed." });
         }
     });
 });
 
 const PORT = process.env.PORT || 8000;
-app.listen(PORT, () => console.log(`🚀 API is running on port ${PORT}`));
+app.listen(PORT, () => console.log(`🚀 API Live on Port ${PORT}`));
