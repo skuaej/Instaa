@@ -1,5 +1,5 @@
 {
-  "name": "insta",
+  "name": "instaa",
   "version": "1.0.0",
   "scripts": {
     "start": "node api/nuelink.js"
