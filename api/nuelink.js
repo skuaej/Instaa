@@ -15,18 +15,18 @@ app.get('/api/nuelink', (req, res) => {
         return res.status(400).json({ success: false, message: "URL missing!" });
     }
 
-    // Path to your cookies file in the root
+    // Koyeb par root folder se cookies uthane ke liye
     const cookiePath = path.join(__dirname, '../cookies.txt');
 
-    // Command with Cookies, User-Agent and Metadata Dump
-    const command = `python3 -m yt_dlp --cookiefile "${cookiePath}" --dump-json --no-check-certificate --user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" --format "best" "${videoUrl}"`;
+    // FIXED COMMAND: --cookies use kiya hai aur path quotes mein hai
+    const command = `python3 -m yt_dlp --cookies "${cookiePath}" --dump-json --no-check-certificate --user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" --format "best" "${videoUrl}"`;
 
     exec(command, (error, stdout, stderr) => {
         if (error) {
             console.error(`❌ Error: ${stderr}`);
             return res.status(500).json({ 
                 success: false, 
-                message: "Instagram Blocked the request. Check your cookies.txt",
+                message: "Instagram Blocked the request. Update cookies.txt or check path.",
                 error: stderr.split('\n')[0] 
             });
         }
