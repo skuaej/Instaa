@@ -1,7 +1,6 @@
 {
-  "name": "insta-koyeb-scraper",
+  "name": "insta",
   "version": "1.0.0",
-  "main": "api/nuelink.js",
   "scripts": {
     "start": "node api/nuelink.js"
   },
