@@ -2,12 +2,13 @@
 # https://curl.haxx.se/rfc/cookie_spec.html
 # This is a generated file! Do not edit.
 
-.instagram.com	TRUE	/	TRUE	1803991377	csrftoken	yY2U7sLrXWyCeidVlTlmLb
-.instagram.com	TRUE	/	TRUE	1803991348	datr	NWF3aUInqzRg_tJyJAoPx9qG
-.instagram.com	TRUE	/	TRUE	1800967348	ig_did	22D93121-588B-4A95-A94A-DBE609A6AF66
-.instagram.com	TRUE	/	TRUE	1770036172	wd	360x663
-.instagram.com	TRUE	/	TRUE	1770036166	dpr	3
-.instagram.com	TRUE	/	TRUE	1803991350	mid	aXdhNQABAAEu3os4f-Ehc5DVpp5S
-.instagram.com	TRUE	/	TRUE	1777207377	ds_user_id	77175281066
-.instagram.com	TRUE	/	TRUE	1800967366	sessionid	77175281066%3AXiZo09P4Ufiy4r%3A19%3AAYjxNhE-i8TlblLqKxEBnLXH3IQLwKd8O5hilma24Q
-.instagram.com	TRUE	/	TRUE	0	rur	"PRN\05477175281066\0541800967378:01fedae42ccf1338e1a495040d78c652bd22e51d4d13e2bfb1bb53e46bf317bd433d04c1"
+.instagram.com	TRUE	/	TRUE	1804698992	datr	cS2CaRy_Li0cja4NwKIpyQIc
+.instagram.com	TRUE	/	TRUE	1801674992	ig_did	8ACEAE41-F02D-487A-A45A-AD6CCE5636E7
+.instagram.com	TRUE	/	TRUE	1770835687	wd	360x663
+.instagram.com	TRUE	/	TRUE	1770743808	dpr	3
+.instagram.com	TRUE	/	TRUE	1804698994	mid	aYItcQABAAGakR0mBViR0Ioga-lY
+.instagram.com	TRUE	/	TRUE	1770743844	ig_direct_region_hint	"FTW\05477175281066\0541801675045:01fe728390b86ca9a89b3d2742e26a7332bea3541a630eb1407ab0ef36cbfb304c5cfb78"
+.instagram.com	TRUE	/	TRUE	1804790886	csrftoken	oHlSMHbDD8JtZULdKnOJl6rsGA3QoHz4
+.instagram.com	TRUE	/	TRUE	1778006886	ds_user_id	80536505025
+.instagram.com	TRUE	/	TRUE	1801766864	sessionid	80536505025%3AsL77XpJBmkRNh8%3A15%3AAYid-LmwA3Rvdwapfg9NQd9csnun-Oxc4gTARw3COA
+.instagram.com	TRUE	/	TRUE	0	rur	"CCO\05480536505025\0541801766887:01fef4ee2a5e37a23a28ba2ee3b675afc00ae42bdd0eeb4a0f165ee7172ac74d0ecc1db5"
